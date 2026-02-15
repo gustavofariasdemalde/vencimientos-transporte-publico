@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matafuegos - Gestión de Vencimientos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚌 Transporte Público Rafaela</h1>
+            <nav>
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="licencias.html" class="nav-link">Ingresar Licencia</a>
+                <a href="renovar-licencia.html" class="nav-link">Renovar Licencia</a>
+                <a href="matafuegos.html" class="nav-link active">Ingresar Matafuego</a>
+                <a href="reemplazar-matafuego.html" class="nav-link">Reemplazar Matafuego</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="module-section">
+                <h2>🧯 Gestión de Matafuegos</h2>
+
+                <!-- Formulario para agregar/editar matafuego -->
+                <div class="form-container">
+                    <h3 id="form-title">Nuevo Matafuego</h3>
+                    <form id="matafuego-form">
+                        <input type="hidden" id="matafuego-id">
+                        <div class="form-group">
+                            <label for="numero-matafuego">Número de Matafuego:</label>
+                            <input type="text" id="numero-matafuego" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="numero-coche">Número de Coche:</label>
+                            <input type="text" id="numero-coche" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha-vencimiento">Fecha de Vencimiento:</label>
+                            <input type="date" id="fecha-vencimiento" required>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary" id="submit-btn">Guardar</button>
+                            <button type="button" class="btn btn-secondary" id="cancel-btn" style="display: none;">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal para reemplazar matafuego -->
+                <div id="reemplazar-modal" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h3>Reemplazar Matafuego</h3>
+                        <form id="reemplazar-form">
+                            <input type="hidden" id="reemplazar-id">
+                            <div class="form-group">
+                                <label for="nuevo-numero-matafuego">Nuevo Número de Matafuego:</label>
+                                <input type="text" id="nuevo-numero-matafuego" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nueva-fecha-vencimiento">Nueva Fecha de Vencimiento:</label>
+                                <input type="date" id="nueva-fecha-vencimiento" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="observaciones-reemplazo">Observaciones (opcional):</label>
+                                <textarea id="observaciones-reemplazo" rows="3"></textarea>
+                            </div>
+                            <div class="form-buttons">
+                                <button type="submit" class="btn btn-primary">Reemplazar</button>
+                                <button type="button" class="btn btn-secondary" id="cancelar-reemplazo">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Tabla de matafuegos -->
+                <div class="table-container">
+                    <h3>Listado de Matafuegos</h3>
+                    <div class="table-wrapper">
+                        <table id="matafuegos-table">
+                            <thead>
+                                <tr>
+                                    <th>Número Matafuego</th>
+                                    <th>Coche</th>
+                                    <th>Fecha Vencimiento</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="matafuegos-tbody">
+                                <!-- Las filas se cargarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="matafuegos.js"></script>
+</body>
+</html>
+

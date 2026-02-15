@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reemplazar Matafuego - Gestión de Vencimientos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚌 Transporte Público Rafaela</h1>
+            <nav>
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="licencias.html" class="nav-link">Ingresar Licencia</a>
+                <a href="renovar-licencia.html" class="nav-link">Renovar Licencia</a>
+                <a href="matafuegos.html" class="nav-link">Ingresar Matafuego</a>
+                <a href="reemplazar-matafuego.html" class="nav-link active">Reemplazar Matafuego</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="module-section">
+                <h2>🔄 Reemplazar Matafuego</h2>
+
+                <!-- Formulario para reemplazar matafuego -->
+                <div class="form-container">
+                    <h3>Reemplazar Matafuego</h3>
+                    <form id="reemplazar-form">
+                        <div class="form-group">
+                            <label for="numero-coche">Número de Coche:</label>
+                            <input type="text" id="numero-coche" required placeholder="Ingrese el número de coche">
+                        </div>
+                        <div class="form-group">
+                            <label for="nueva-fecha-vencimiento">Nueva Fecha de Vencimiento:</label>
+                            <input type="date" id="nueva-fecha-vencimiento" required>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary">Reemplazar Matafuego</button>
+                            <button type="button" class="btn btn-secondary" onclick="window.location.href='matafuegos.html'">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="mensaje-resultado" style="display: none;"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="reemplazar-matafuego.js"></script>
+</body>
+</html>
+

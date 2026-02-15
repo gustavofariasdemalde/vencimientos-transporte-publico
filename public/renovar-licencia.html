@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renovar Licencia - Gestión de Vencimientos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚌 Transporte Público Rafaela</h1>
+            <nav>
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="licencias.html" class="nav-link">Ingresar Licencia</a>
+                <a href="renovar-licencia.html" class="nav-link active">Renovar Licencia</a>
+                <a href="matafuegos.html" class="nav-link">Ingresar Matafuego</a>
+                <a href="reemplazar-matafuego.html" class="nav-link">Reemplazar Matafuego</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="module-section">
+                <h2>🔄 Renovar Licencia de Conducir</h2>
+
+                <!-- Formulario para renovar licencia -->
+                <div class="form-container">
+                    <h3>Renovar Licencia</h3>
+                    <form id="renovar-form">
+                        <div class="form-group">
+                            <label for="legajo">Número de Legajo:</label>
+                            <input type="text" id="legajo" required placeholder="Ingrese el legajo del chofer">
+                        </div>
+                        <div class="form-group">
+                            <label for="nueva-fecha-vencimiento">Nueva Fecha de Vencimiento:</label>
+                            <input type="date" id="nueva-fecha-vencimiento" required>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary">Renovar Licencia</button>
+                            <button type="button" class="btn btn-secondary" onclick="window.location.href='licencias.html'">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="mensaje-resultado" style="display: none;"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="renovar-licencia.js"></script>
+</body>
+</html>
+

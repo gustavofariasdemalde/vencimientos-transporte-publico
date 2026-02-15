@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Gestión de Vencimientos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚌 Transporte Público Rafaela</h1>
+            <nav>
+                <a href="index.html" class="nav-link active">Dashboard</a>
+                <a href="licencias.html" class="nav-link">Ingresar Licencia</a>
+                <a href="renovar-licencia.html" class="nav-link">Renovar Licencia</a>
+                <a href="matafuegos.html" class="nav-link">Ingresar Matafuego</a>
+                <a href="reemplazar-matafuego.html" class="nav-link">Reemplazar Matafuego</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="dashboard">
+                <h2>Resumen General</h2>
+                
+                <!-- Primera fila: Licencias -->
+                <div class="dashboard-row">
+                    <!-- Estadísticas de Licencias -->
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <h3>📋 Licencias de Conducir</h3>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-item">
+                                <span class="stat-label">Total:</span>
+                                <span class="stat-value" id="licencias-total">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Vencidas:</span>
+                                <span class="stat-value vencido" id="licencias-vencidas">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Próximas a vencer:</span>
+                                <span class="stat-value proximo" id="licencias-proximas">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tabla de Licencias a vencer en menos de 30 días -->
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <h3>⚠️ Licencias a Vencer en Menos de 30 Días</h3>
+                        </div>
+                        <div class="table-wrapper-small">
+                            <table id="tabla-licencias-30">
+                                <thead>
+                                    <tr>
+                                        <th>Legajo</th>
+                                        <th>Fecha Vencimiento</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="licencias-30-tbody">
+                                    <!-- Se cargará dinámicamente -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segunda fila: Matafuegos -->
+                <div class="dashboard-row">
+                    <!-- Estadísticas de Matafuegos -->
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <h3>🧯 Matafuegos</h3>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-item">
+                                <span class="stat-label">Total:</span>
+                                <span class="stat-value" id="matafuegos-total">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Vencidos:</span>
+                                <span class="stat-value vencido" id="matafuegos-vencidos">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Próximos a vencer:</span>
+                                <span class="stat-value proximo" id="matafuegos-proximos">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tabla de Matafuegos a vencer en menos de 30 días -->
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <h3>⚠️ Matafuegos a Vencer en Menos de 30 Días</h3>
+                        </div>
+                        <div class="table-wrapper-small">
+                            <table id="tabla-matafuegos-30">
+                                <thead>
+                                    <tr>
+                                        <th>Coche</th>
+                                        <th>Fecha Vencimiento</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="matafuegos-30-tbody">
+                                    <!-- Se cargará dinámicamente -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
+

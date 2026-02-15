@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Licencias de Conducir - Gestión de Vencimientos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚌 Transporte Público Rafaela</h1>
+            <nav>
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="licencias.html" class="nav-link active">Ingresar Licencia</a>
+                <a href="renovar-licencia.html" class="nav-link">Renovar Licencia</a>
+                <a href="matafuegos.html" class="nav-link">Ingresar Matafuego</a>
+                <a href="reemplazar-matafuego.html" class="nav-link">Reemplazar Matafuego</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="module-section">
+                <h2>📋 Gestión de Licencias de Conducir</h2>
+
+                <!-- Formulario para agregar/editar licencia -->
+                <div class="form-container">
+                    <h3 id="form-title">Nueva Licencia</h3>
+                    <form id="licencia-form">
+                        <input type="hidden" id="licencia-legajo-original">
+                        <div class="form-group">
+                            <label for="legajo">Legajo:</label>
+                            <input type="text" id="legajo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Apellido:</label>
+                            <input type="text" id="apellido" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dni">DNI:</label>
+                            <input type="text" id="dni" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha-vencimiento">Fecha de Vencimiento:</label>
+                            <input type="date" id="fecha-vencimiento" required>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary" id="submit-btn">Guardar</button>
+                            <button type="button" class="btn btn-secondary" id="cancel-btn" style="display: none;">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Tabla de licencias -->
+                <div class="table-container">
+                    <h3>Listado de Licencias</h3>
+                    <div class="table-wrapper">
+                        <table id="licencias-table">
+                            <thead>
+                                <tr>
+                                    <th>Legajo</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>DNI</th>
+                                    <th>Fecha Vencimiento</th>
+                                </tr>
+                            </thead>
+                            <tbody id="licencias-tbody">
+                                <!-- Las filas se cargarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="licencias.js"></script>
+</body>
+</html>
+

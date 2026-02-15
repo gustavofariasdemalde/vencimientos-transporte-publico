@@ -1,0 +1,17 @@
+{
+  "name": "gestion-vencimientos-transporte",
+  "version": "1.0.0",
+  "description": "Aplicación web para gestionar vencimientos de documentación de transporte público",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["transporte", "vencimientos", "licencias", "matafuegos"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
+
