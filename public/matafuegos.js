@@ -76,7 +76,7 @@ function renderizarTabla() {
     tbody.innerHTML = '';
     
     if (matafuegos.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 20px;">No hay matafuegos registrados</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; padding: 20px;">No hay matafuegos registrados</td></tr>';
         return;
     }
     
@@ -86,10 +86,8 @@ function renderizarTabla() {
             <td>${matafuego.numeroMatafuego}</td>
             <td><strong>Coche ${matafuego.numeroCoche}</strong></td>
             <td>${formatearFecha(matafuego.fechaVencimiento)}</td>
-            <td><span class="estado ${obtenerColorEstado(matafuego.estado)}">${matafuego.estado}</span></td>
             <td class="acciones">
                 <button class="btn btn-edit" onclick="editarMatafuego(${matafuego.id})">Editar</button>
-                <button class="btn btn-primary" onclick="abrirModalReemplazar(${matafuego.id})" style="padding: 5px 10px; font-size: 14px;">Reemplazar</button>
                 <button class="btn btn-delete" onclick="eliminarMatafuego(${matafuego.id})">Eliminar</button>
             </td>
         `;

@@ -53,7 +53,7 @@ function renderizarTabla() {
     tbody.innerHTML = '';
     
     if (licencias.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 20px;">No hay licencias registradas</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px;">No hay licencias registradas</td></tr>';
         return;
     }
     
@@ -65,6 +65,10 @@ function renderizarTabla() {
             <td>${licencia.apellido}</td>
             <td>${licencia.dni}</td>
             <td>${formatearFecha(licencia.fechaVencimiento)}</td>
+            <td class="acciones">
+                <button class="btn btn-edit" onclick="editarLicencia('${licencia.legajo}')">Editar</button>
+                <button class="btn btn-delete" onclick="eliminarLicencia('${licencia.legajo}')">Eliminar</button>
+            </td>
         `;
         tbody.appendChild(tr);
     });
@@ -106,6 +110,28 @@ async function editarLicencia(legajo) {
     form.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+// Función para eliminar una licencia
+async function eliminarLicencia(legajo) {
+    if (!confirm('¿Está seguro de que desea eliminar esta licencia?')) {
+        return;
+    }
+    
+    try {
+        const response = await fetch(`${API_BASE}/licencias/${legajo}`, {
+            method: 'DELETE'
+        });
+        
+        if (!response.ok) {
+            throw new Error('Error al eliminar la licencia');
+        }
+        
+        await cargarLicencias();
+        alert('Licencia eliminada correctamente');
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error al eliminar la licencia');
+    }
+}
 
 // Manejar envío del formulario principal
 form.addEventListener('submit', async (e) => {
@@ -167,3 +193,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Hacer funciones globales para los botones
 window.editarLicencia = editarLicencia;
+window.eliminarLicencia = eliminarLicencia;
