@@ -1,0 +1,53 @@
+========================================
+INSTRUCCIONES PARA SUBIR A GITHUB
+========================================
+
+OPCIÓN 1 (MÁS FÁCIL - RECOMENDADA):
+-------------------------------------
+Ejecuta este comando en tu terminal:
+
+    gh auth login
+
+Sigue las instrucciones en pantalla:
+1. Selecciona "GitHub.com"
+2. Selecciona "HTTPS"  
+3. Selecciona "Login with a web browser"
+4. Copia el código que aparece
+5. Presiona Enter (se abrirá el navegador)
+6. Pega el código y autoriza
+
+Luego ejecuta:
+    git push -u origin main
+
+
+OPCIÓN 2 (ALTERNATIVA):
+-----------------------
+Si prefieres usar un token:
+
+1. Ve a: https://github.com/settings/tokens
+2. Click en "Generate new token (classic)"
+3. Dale un nombre: "vencimientos-app"
+4. Selecciona el scope "repo" (marca la casilla)
+5. Click en "Generate token"
+6. COPIA EL TOKEN (solo lo verás una vez)
+
+Luego ejecuta estos comandos:
+    git remote set-url origin https://TU_TOKEN@github.com/gustavofariasdemalde/vencimientos-transporte-publico.git
+    git push -u origin main
+
+(Reemplaza TU_TOKEN con el token que copiaste)
+
+
+OPCIÓN 3 (USANDO GITHUB DESKTOP):
+----------------------------------
+Si tienes GitHub Desktop instalado:
+
+1. Abre GitHub Desktop
+2. File → Add Local Repository
+3. Selecciona la carpeta: C:\Users\faria\OneDrive\Escritorio\ENANO
+4. Click en "Publish repository"
+5. Selecciona el repositorio: vencimientos-transporte-publico
+6. Click en "Publish repository"
+
+========================================
+

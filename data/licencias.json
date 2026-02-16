@@ -1,2 +1,18 @@
-[]
-
+[
+  {
+    "legajo": "2345",
+    "nombre": "Gustavo Farias",
+    "apellido": "Farías Demaldé",
+    "dni": "22054729",
+    "fechaVencimiento": "2026-02-20",
+    "historialRenovaciones": []
+  },
+  {
+    "legajo": "6635",
+    "nombre": "Laura Zapata",
+    "apellido": "Farías Demaldé",
+    "dni": "25634963",
+    "fechaVencimiento": "2026-02-27",
+    "historialRenovaciones": []
+  }
+]
