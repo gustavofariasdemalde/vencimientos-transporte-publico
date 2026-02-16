@@ -81,10 +81,13 @@ async function cargarEstadisticas() {
     }
 }
 
-// Verificar autenticación
-if (sessionStorage.getItem('autenticado') !== 'true') {
-    window.location.href = 'login.html';
-}
+// Verificar autenticación INMEDIATAMENTE (antes de que se renderice el contenido)
+(function() {
+    if (sessionStorage.getItem('autenticado') !== 'true') {
+        window.location.replace('login.html');
+        return;
+    }
+})();
 
 // Cargar estadísticas al cargar la página
 document.addEventListener('DOMContentLoaded', () => {

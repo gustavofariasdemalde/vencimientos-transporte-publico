@@ -18,18 +18,18 @@ if (!fs.existsSync(dataDir)) {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Servir archivos estáticos desde la carpeta public
-app.use(express.static(path.join(__dirname, 'public')));
+// Ruta principal - servir el login (debe ir ANTES de los archivos estáticos)
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
 
 // Rutas de la API
 app.use('/api/licencias', licenciasRoutes);
 app.use('/api/matafuegos', matafuegosRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 
-// Ruta principal - servir el login
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'login.html'));
-});
+// Servir archivos estáticos desde la carpeta public (después de las rutas específicas)
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Manejo de errores
 app.use((err, req, res, next) => {

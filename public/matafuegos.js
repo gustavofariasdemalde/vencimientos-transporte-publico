@@ -1,7 +1,10 @@
-// Verificar autenticación
-if (sessionStorage.getItem('autenticado') !== 'true') {
-    window.location.href = 'login.html';
-}
+// Verificar autenticación INMEDIATAMENTE
+(function() {
+    if (sessionStorage.getItem('autenticado') !== 'true') {
+        window.location.replace('login.html');
+        return;
+    }
+})();
 
 // API base URL
 const API_BASE = '/api';

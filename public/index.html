@@ -114,6 +114,12 @@
         </main>
     </div>
 
+    <script>
+        // Verificar autenticación ANTES de cargar cualquier contenido
+        if (sessionStorage.getItem('autenticado') !== 'true') {
+            window.location.replace('login.html');
+        }
+    </script>
     <script src="dashboard.js"></script>
 </body>
 </html>
