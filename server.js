@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const db = require('./db');
 const licenciasRoutes = require('./routes/licencias');
 const matafuegosRoutes = require('./routes/matafuegos');
 const dashboardRoutes = require('./routes/dashboard');
@@ -7,7 +8,7 @@ const dashboardRoutes = require('./routes/dashboard');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Asegurar que el directorio data existe
+// Asegurar que el directorio data existe (para modo sin base de datos)
 const fs = require('fs');
 const dataDir = path.join(__dirname, 'data');
 if (!fs.existsSync(dataDir)) {
@@ -37,8 +38,21 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Error interno del servidor' });
 });
 
-// Iniciar servidor
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Servidor corriendo en el puerto ${PORT}`);
-});
+// Iniciar base de datos (si hay DATABASE_URL) y luego el servidor
+async function start() {
+  if (db.useDatabase()) {
+    try {
+      await db.initDb();
+      console.log('Base de datos conectada. Los datos se guardarán de forma persistente.');
+    } catch (err) {
+      console.error('Error al conectar la base de datos:', err.message);
+      console.log('La aplicación usará archivos locales (los datos pueden no persistir en el servidor).');
+    }
+  }
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
+  });
+}
+
+start();
 

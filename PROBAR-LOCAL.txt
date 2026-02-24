@@ -1,0 +1,35 @@
+========================================
+PROBAR EN LOCAL Y LUEGO SUBIR A GIT
+========================================
+
+1) Instalar dependencias (solo la primera vez después del cambio)
+   Abrí la terminal en la carpeta del proyecto y ejecutá:
+   
+   npm install
+
+2) Iniciar el servidor
+   
+   npm start
+
+3) Probar en el navegador
+   - Abrí: http://localhost:3000
+   - Clave: administrador
+   - Probá: cargar una licencia, cargar un matafuego, editarlos, eliminarlos.
+   - Probá: Renovar licencia, Reemplazar matafuego.
+   - Revisá que el dashboard muestre bien los números.
+
+4) Si todo funciona, subir a Git
+   En la terminal:
+   
+   git add .
+   git commit -m "Usar base de datos para que los datos no se pierdan"
+   git push origin main
+
+5) En Render (para que los datos persistan en la web)
+   - Crear una base PostgreSQL (New + → PostgreSQL, Free).
+   - En tu Web Service → Environment → Add:
+     Key:   DATABASE_URL
+     Value: (copiar la Internal Database URL de la base que creaste)
+   - Save. Render redeploya solo.
+
+========================================
