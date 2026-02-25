@@ -3,12 +3,11 @@ const API_BASE = '/api';
 
 // Función para formatear fecha
 function formatearFecha(fecha) {
-    const date = new Date(fecha);
-    return date.toLocaleDateString('es-ES', { 
-        year: 'numeric', 
-        month: '2-digit', 
-        day: '2-digit' 
-    });
+    // Separar el string de fecha (YYYY-MM-DD) directamente sin pasar por Date
+    // para evitar problemas de zona horaria
+    if (!fecha) return '';
+    const [año, mes, día] = fecha.split('-');
+    return `${día}/${mes}/${año}`;
 }
 
 // Función para renderizar tabla de licencias a vencer

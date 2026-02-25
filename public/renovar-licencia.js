@@ -71,7 +71,9 @@ form.addEventListener('submit', async (e) => {
         }
         
         const licenciaRenovada = await response.json();
-        mostrarMensaje(`Licencia renovada correctamente. Nueva fecha de vencimiento: ${new Date(licenciaRenovada.fechaVencimiento).toLocaleDateString('es-ES')}`, 'success');
+        const [año, mes, día] = licenciaRenovada.fechaVencimiento.split('-');
+        const fechaFormato = `${día}/${mes}/${año}`;
+        mostrarMensaje(`Licencia renovada correctamente. Nueva fecha de vencimiento: ${fechaFormato}`, 'success');
         
         // Limpiar formulario
         form.reset();

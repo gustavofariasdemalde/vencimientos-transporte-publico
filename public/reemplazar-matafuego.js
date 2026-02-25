@@ -61,7 +61,9 @@ form.addEventListener('submit', async (e) => {
         }
         
         const matafuegoReemplazado = await response.json();
-        mostrarMensaje(`Matafuego reemplazado correctamente. Nueva fecha de vencimiento: ${new Date(matafuegoReemplazado.fechaVencimiento).toLocaleDateString('es-ES')}`, 'success');
+        const [año, mes, día] = matafuegoReemplazado.fechaVencimiento.split('-');
+        const fechaFormato = `${día}/${mes}/${año}`;
+        mostrarMensaje(`Matafuego reemplazado correctamente. Nueva fecha de vencimiento: ${fechaFormato}`, 'success');
         
         // Limpiar formulario
         form.reset();
